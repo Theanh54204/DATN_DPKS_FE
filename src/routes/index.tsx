@@ -3,19 +3,17 @@ import AuthPage from '../pages/auth/pages/AuthPage';
 import HomePage from '../components/Layouts/HomePage';
 import RoomDetailPage from '../pages/products/pages/roomdetail/pages/RoomDetail';
 import AdminDashboard from '../admin/pages/AdminPage';
-import QuanLyRoomPage from '../admin/pages/adminroom/pages/QuanLyRoomPage';
 import BookingPage from '../pages/products/pages/booking-room/BookingPage';
 import CheckoutPage from '../pages/products/pages/checkout/CheckoutPage';
 import RoomsListPage from '../pages/products/pages/rooms/RoomsListPage';
-import DashboardAdmin from '../admin/pages/adminroom/pages/DashboardAdmin';
 
 const Routers = () => {
   return (
     <Routes>
       {/* Route cho Admin */}
       <Route path='/admin' element={<AdminDashboard />}>
+        <Route index element={<DashboardPage />} />
         <Route path='qlroom' element={<QuanLyRoomPage />} />
-        <Route path='dashboard' element={<DashboardAdmin />} />
         {/* Bạn có thể thêm các route con khác như ql-loai-phong ở đây */}
       </Route>
 
@@ -26,6 +24,7 @@ const Routers = () => {
       <Route path='/booking' element={<BookingPage />} />
       <Route path='/checkout' element={<CheckoutPage />} />
       <Route path='/rooms' element={<RoomsListPage />} />
+      <Route path='/payment-return' element={<PaymentReturnPage />} />
     </Routes>
   );
 };
