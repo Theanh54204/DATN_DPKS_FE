@@ -10,7 +10,6 @@ import logo from '../../../assets/logo.png';
 
 const Sidebar: React.FC = () => {
   const menuItems = [
-    { icon: <FiGrid />, label: 'Dashboard', path: '/admin/dashboard'},
     { icon: <FiGrid />, label: 'Dashboard', path: '/admin'},
     { icon: <FiHome />, label: 'Quản lý phòng', path: '/admin/qlroom' },
     { icon: <FiCalendar />, label: 'Quản lý đặt phòng', path: '' },

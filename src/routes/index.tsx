@@ -6,6 +6,12 @@ import AdminDashboard from '../admin/pages/AdminPage';
 import BookingPage from '../pages/products/pages/booking-room/BookingPage';
 import CheckoutPage from '../pages/products/pages/checkout/CheckoutPage';
 import RoomsListPage from '../pages/products/pages/rooms/RoomsListPage';
+import AdminUserPage from '../admin/pages/adminuser/pages/AdminUserPage';
+import QuanLyRoomPage from '../admin/pages/adminroom/pages/quanLyRoomPage';
+import DashboardPage from '../admin/pages/dashboard/DashboardPage';
+import ReviewManagementPage from '../admin/pages/review/ReviewManagementPage';
+import PaymentManagementPage from '../admin/pages/payments/PaymentManagementPage';
+import PaymentReturnPage from '../pages/products/pages/paymentcomfirm/pages/PaymentReturnPage';
 
 const Routers = () => {
   return (
@@ -14,6 +20,9 @@ const Routers = () => {
       <Route path='/admin' element={<AdminDashboard />}>
         <Route index element={<DashboardPage />} />
         <Route path='qlroom' element={<QuanLyRoomPage />} />
+        <Route path='reviews' element={<ReviewManagementPage />} />
+        <Route path='qluser' element={<AdminUserPage />} />
+        <Route path='payments' element={<PaymentManagementPage />} />
         {/* Bạn có thể thêm các route con khác như ql-loai-phong ở đây */}
       </Route>
 
