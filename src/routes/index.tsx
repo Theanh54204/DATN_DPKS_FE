@@ -8,6 +8,7 @@ import CheckoutPage from '../pages/products/pages/checkout/CheckoutPage';
 import RoomsListPage from '../pages/products/pages/rooms/RoomsListPage';
 import AdminUserPage from '../admin/pages/adminuser/pages/AdminUserPage';
 import QuanLyRoomPage from '../admin/pages/adminroom/pages/quanLyRoomPage';
+import DashboardAdmin from '../admin/pages/adminroom/pages/DashboardAdmin';
 import DashboardPage from '../admin/pages/dashboard/DashboardPage';
 import ReviewManagementPage from '../admin/pages/review/ReviewManagementPage';
 import PaymentManagementPage from '../admin/pages/payments/PaymentManagementPage';
@@ -23,6 +24,7 @@ const Routers = () => {
         <Route path='reviews' element={<ReviewManagementPage />} />
         <Route path='qluser' element={<AdminUserPage />} />
         <Route path='payments' element={<PaymentManagementPage />} />
+        <Route path='thong-ke' element={<DashboardAdmin/>} />
         {/* Bạn có thể thêm các route con khác như ql-loai-phong ở đây */}
       </Route>
 
