@@ -60,7 +60,7 @@ export function HomePopular() {
             <div className="flex items-end justify-between gap-4">
                 <div>
                     <h2 className="text-xl font-semibold md:text-2xl">
-                        Gợi ý khách sạn
+                        Gợi ý phòng
                     </h2>
                     <p className="mt-1 text-sm text-slate-600">
                         Các phòng nổi bật từ hệ thống.

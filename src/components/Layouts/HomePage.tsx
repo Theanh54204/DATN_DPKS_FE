@@ -44,8 +44,8 @@ export default function HomePage() {
                 />
                 <HomeBanner />
                 <HomeQuickFilters value={quick} onChange={(p) => setQuick((s) => ({ ...s, ...p }))} />
-                <HomeDeals />
                 <HomePopular hotels={hotelsFiltered} cities={cities} />
+                <HomeDeals />
                 <HomeWhy />
             </main>
 
