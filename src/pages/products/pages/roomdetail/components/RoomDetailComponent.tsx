@@ -75,7 +75,7 @@ export const RoomDetailComponent: React.FC<Props> = ({ room, onClose }) => {
       <div className="p-6 md:p-10">
         <h2 className="text-4xl font-black mb-6">{room.name}</h2>
 
-        {/* GALLERY */}
+        {/* GALLERY node  */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
           {room.images?.map((img, index) => (
             <img key={index} src={img} className="w-full h-40 object-cover rounded-sm" alt="room" />
