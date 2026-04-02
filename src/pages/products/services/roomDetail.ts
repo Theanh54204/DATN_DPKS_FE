@@ -9,10 +9,16 @@ export interface RoomType {
   name: string;
   description: string;
   capacity: number;
+  max_adults: number;    // Thêm dòng này
+  max_children: number;  // Thêm dòng này
+  area?: number;         // Thêm diện tích nếu cần
+  amenities?: string[];  // Thêm tiện nghi
   bed_type: string;
   base_price: number;
   currency: string;
   status: string;
+  services?: any[];      // Thêm danh sách dịch vụ
+  available_rooms: number; // Thêm số lượng phòng trống
   created_at: string;
   updated_at: string;
 }
