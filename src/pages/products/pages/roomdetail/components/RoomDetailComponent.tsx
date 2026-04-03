@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { RoomTypeL } from "../../../services/roomTypeService";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   room: RoomTypeL;
@@ -19,7 +20,7 @@ export const RoomDetailComponent: React.FC<Props> = ({ room, onClose }) => {
   const [roomCount, setRoomCount] = useState(availableRooms > 0 ? 1 : 0);
   const [rooms, setRooms] = useState([{ adults: 1, children: 0, infant: 0 }]);
   const [selectedServices, setSelectedServices] = useState<number[]>([]);
-
+  const navigate = useNavigate();
   // --- LOGIC TÍNH TOÁN ---
   const calculateNights = () => {
     const start = new Date(checkIn);
@@ -41,7 +42,25 @@ export const RoomDetailComponent: React.FC<Props> = ({ room, onClose }) => {
     }));
     setRooms(newRooms);
   };
+  const handleBooking = () => {
+    // Chuẩn bị dữ liệu để gửi đi
+    const bookingData = {
+      roomId: room.room_type_id,
+      roomName: room.name,
+      checkIn,
+      checkOut,
+      roomCount,
+      guestConfig: rooms, // Danh sách người lớn/trẻ em mỗi phòng
+      selectedServices: services.filter(s => selectedServices.includes(s.id)),
+      totalPrice: total,
+    };
 
+    // Điều hướng và truyền dữ liệu qua state
+    navigate("/booking", { state: bookingData });
+    
+    // Nếu có hàm onClose (đóng modal) thì gọi nó
+    if (onClose) onClose();
+  };
   const toggleService = (id: number) => {
     setSelectedServices((prev) =>
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
@@ -244,20 +263,10 @@ export const RoomDetailComponent: React.FC<Props> = ({ room, onClose }) => {
             </div>
 
             {/* BUTTON GROUP */}
-            <div className="grid grid-cols-2 gap-2">
+            <div className="w-full">            
               <button 
                 disabled={availableRooms === 0 || roomCount === 0}
-                className={`py-4 rounded-xl font-bold text-[11px] uppercase transition-all shadow-md active:scale-95 ${
-                  availableRooms === 0 || roomCount === 0 
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                  : 'bg-white border-2 border-green-600 text-green-700 hover:bg-green-50'
-                }`}
-              >
-                Giữ chỗ tạm thời
-              </button>
-              
-              <button 
-                disabled={availableRooms === 0 || roomCount === 0}
+                onClick={handleBooking}
                 className={`py-4 rounded-xl font-bold text-[11px] uppercase transition-all shadow-lg active:scale-95 ${
                   availableRooms === 0 || roomCount === 0 
                   ? '!bg-gray-300 cursor-not-allowed text-gray-500 shadow-none' 
